@@ -1,4 +1,4 @@
-ck Logo](https://i.imgur.com/1QgrNNw.png)
+![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)
 
 # Angular 2 & Express API | MyRecipeBook
 
