@@ -1,4 +1,4 @@
-![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)
+![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
 # Angular 2 & Express API | MyRecipeBook
 
@@ -8,7 +8,7 @@
 
 Cooking is hard, but you know what's harder? Remembering recipes. Remember that one time you made that amazing dish and forgot what ingredients go into it? It's a terrible feeling.
 
-In this exercise, we'll make a an application to keep track of your favorite recipes so you never have this disappointing experience again.
+In this exercise, we'll make an application to keep track of your favorite recipes so you never have this disappointing experience again.
 
 This application can apply to food or drinks, so feel free to alter the language accordingly.
 
