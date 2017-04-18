@@ -4,7 +4,7 @@
 
 ## Introduction
 
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_37878a884049d45433ec33fd54e17a57.jpg)
+![](images/cooking-knife.jpg)
 
 Cooking is hard, but you know what's harder? Remembering recipes. Remember that one time you made that amazing dish and forgot what ingredients go into it? It's a terrible feeling.
 
