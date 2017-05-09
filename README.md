@@ -4,13 +4,13 @@
 
 ## Introduction
 
-![](images/cooking-knife.jpg)
+![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_ae5fdf4b7208a8a09e24e30e6824860f.jpg)
 
 Cooking is hard, but you know what's harder? Remembering recipes. Remember that one time you made that amazing dish and forgot what ingredients go into it? It's a terrible feeling.
 
 In this exercise, we'll make an application to keep track of your favorite recipes so you never have this disappointing experience again.
 
-This application can apply to food or drinks, so feel free to alter the language accordingly.
+This application can apply to food or dishes, so feel free to alter the language accordingly.
 
 ## Requirements
 
@@ -44,7 +44,7 @@ In addition, create a *component* that uses this service to display a list of al
 
 Setup the Angular router.
 
-When navigating to the home(`/`) route, display the list of drinks.
+When navigating to the home(`/`) route, display the list of dishes.
 
 In addition, create a route and component for a single recipe's details page.
 
@@ -62,7 +62,8 @@ The first step in doing so is going to be displaying a list of possible ingredie
 
 We've created an API endpoint for all ingredients, `/api/ingredients`. Create a new service for ingredients to make a request to this endpoint.
 
-In the **dish details component**, list all of these ingredients. Add a button to each ingredient called *add*. We will use this to add ingredients to a particular dish in the next iteration.
+In the **dish details component**, list all of these ingredients. Add a button to each ingredient called *add*. We will use this to add ingredients to a particular dish in the next iteration. In addition, for each ingredient add an input box for the _quantity_.
+
 
 ### Iteration 4 | Add Ingredient to Dish
 
@@ -70,12 +71,24 @@ Create a function in the single dish component. When someone clicks the "add" bu
 
 The request should be done inside of your dish service.
 
-The API endpoint is a POST to `'/drinks/:drinkId/ingredients/:id/add'`. It also takes in a parameter for `quantity` in the body, which is a number.
+The API endpoint is a POST to `'/dishes/:dishId/ingredients/:id/add'`. It also takes in a parameter for `quantity` in the body, which is a number.
 
-Add a list of a dish's ingredients to the single dish component. Upon successfully adding the ingredient to the dish, display the ingredient in the list.
+Add a list of a dish's ingredients to the single dish component. Upon successfully adding the ingredient to the dish, display the ingredient in the list. A dish's ingredients are formatted in the following manner:
+
+```
+dish = {
+  // ...
+  ingredients: [
+    {
+      ingredient: { name: "Olive Oil" },
+      quantity: 1
+    },
+  ]
+}
+```
 
 ### Bonus | Creating New Ingredients & Dishes
 
 Create a new route for adding new dishes. Add a link in the home page to display a form. This form will make a POST request to `/dishes` with a `name`, `image`, and `description`.
 
-In addition, create a route on the home page to display a form to create a new ingredient. The route is a POST to `/ingredients`, and takes a `name`, `image`, and `description` in the body.
+In addition, create a route on the home page to display a form to create a new ingredient. The route is a POST to `/ingredients`, and takes a `name` in the body.
