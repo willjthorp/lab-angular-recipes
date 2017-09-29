@@ -1,5 +1,10 @@
 <h2>Recipes</h2>
 
-<button (click)="getRecipe()"> Get Recipe</button>
-    <p>{{ recipe[0].name }}</p>
-    <p>{{ recipe[0].description }}</p>
+<button (click)="getRecipe()">Get Recipe</button>
+
+
+<div class="recipe-card" *ngFor="let recipe of recipeList">
+  <p>{{ recipe.name }}</p>
+  <p>{{ recipe.description }}</p>
+  <a [routerLink]="['/home', recipe._id]">View details</a>
+</div>
