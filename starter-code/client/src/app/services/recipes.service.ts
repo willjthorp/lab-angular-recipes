@@ -15,7 +15,12 @@ export class RecipesService {
    }
 
    getRecipe(id: string) {
-     return this.http.get(`http://localhost:3000/api/dishes/${id}`)
-     .map((res) => res.json())
+     return this.http.get(`http://localhost:3000/api/dishes/${id}`).map((res) => res.json());
    }
+
+   postIngredient(dishId: string, ingredientId: string, quantity) {
+    return this.http.post(`http://localhost:3000/api/dishes/${dishId}/ingredients/${ingredientId}/add`, {quantity: Number(quantity)})
+      .map((res) => res.json())
+      .subscribe()
+  }
 }

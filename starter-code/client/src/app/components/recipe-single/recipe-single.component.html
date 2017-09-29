@@ -7,12 +7,22 @@
 </div>
 
 <div class="recipe-card" *ngIf="recipeSingle">
+
   <p>{{ recipeSingle.name }}</p>
   <p>{{ recipeSingle.description }}</p>
   <div class="ingredients-list">
+    <li *ngFor="let ingredient of recipeSingle.ingredients">Name: {{ingredient.ingredientId.name}}, Quantity: {{ingredient.quantity}}
+    </li>
+  </div>
+
+
+  <h3>Add Ingredient</h3>
+  <div class="ingredients-list">
     <li *ngFor="let ingredient of ingredientList">
       {{ingredient.name}}
-      <button (click)="handleAddIngredient">Add to recipe</button>
+      <label>Quantity</label>
+      <input type="number" #quantity>
+      <button (click)="handleAddIngredient(recipeSingle._id, ingredient._id, quantity.value, ingredient.name)">Add to recipe</button>
     </li>
   </div>
 </div>

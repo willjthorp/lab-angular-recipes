@@ -12,25 +12,40 @@ import { IngredientsService } from '../../services/ingredients.service'
 export class RecipeSingleComponent implements OnInit {
 
   recipeId: string;
-
   recipeSingle: any;
+  results: string;
+  ingredientList: Object[];
 
-  ingredientList: any;
 
   constructor(private route: ActivatedRoute, private recipes: RecipesService, private ingredients: IngredientsService) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => this.recipeId = params['id']);
+    this.route.params.subscribe(params => this.recipeId = params['id']);
     this.getRecipe();
     this.getIngredients();
   }
 
   getRecipe() {
-    this.recipes.getRecipe(this.recipeId).subscribe((recipe) => this.recipeSingle = recipe);
+    this.recipes.getRecipe(this.recipeId).subscribe((recipe) => {this.recipeSingle = recipe});
   }
 
   getIngredients() {
-    this.ingredients.getIngredients().subscribe((ingredients) => this.ingredientList = ingredients);
+    this.ingredients.getIngredients().subscribe((ingredients) => (this.ingredientList = ingredients));
+  }
+
+  handleAddIngredient(recipeId: string, ingredientId: string, quantity: string, ingredientName: string) {
+    this.recipes.postIngredient(recipeId, ingredientId, quantity);
+
+    let found = false
+    this.recipeSingle.ingredients.forEach((element) => {
+      if (element.ingredientId._id === ingredientId) {
+        element.quantity = parseInt(element.quantity) + parseInt(quantity)
+        found = true
+      }
+    })
+    if (!found) {
+      this.recipeSingle.ingredients.push({ingredientId: {_id: ingredientId, name: ingredientName}, quantity: quantity})
+    }
   }
 
 }
